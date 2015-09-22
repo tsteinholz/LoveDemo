@@ -22,3 +22,8 @@ function drawFloor()
   end
   love.graphics.draw(edge, next, love.graphics.getHeight(), math.rad(180), scale, scale)
 end
+
+-- TODO : Add Wall
+-- TODO : Add Camera
+-- TODO : Add Player
+-- TODO : Add Intractable Physics Objects

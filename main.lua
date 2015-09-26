@@ -4,19 +4,22 @@ function love.load()
   love.graphics.setBackgroundColor(124, 65, 225);
   floor = love.graphics.newImage('Resources/Objects/Floor.png');
   edge  = love.graphics.newImage('Resources/Objects/Edge.png');
+  wall  = love.graphics.newImage('Resources/Objects/Wall.png');
 
   camera.layers = {};
   local scale = 0.5;
   camera:newLayer(scale, function()
-          local floorWidth, floorHeight = floor:getWidth()*scale, floor:getHeight()*scale
-          local next = 0
-          love.graphics.draw(edge, 0, love.graphics.getHeight() - (floorHeight), 0, scale, scale)
-          for i=floorWidth, love.graphics.getWidth()-floorWidth, floorWidth do
-            love.graphics.draw(floor, i, love.graphics.getHeight() - (floorHeight), 0, scale, scale)
-            next = i + 2 *floorWidth
-          end
-          love.graphics.draw(edge, next, love.graphics.getHeight(), math.rad(180), scale, scale)
-      end)
+    
+
+    local floorWidth, floorHeight = floor:getWidth()*scale, floor:getHeight()*scale
+    local next = 0
+    love.graphics.draw(edge, 0, love.graphics.getHeight() - (floorHeight), 0, scale, scale)
+    for i=floorWidth, love.graphics.getWidth()-floorWidth, floorWidth do
+      love.graphics.draw(floor, i, love.graphics.getHeight() - (floorHeight), 0, scale, scale)
+      next = i + 2 *floorWidth
+    end
+  love.graphics.draw(edge, next, love.graphics.getHeight(), math.rad(180), scale, scale)
+  end)
 end
 
 function love.draw()
